@@ -5,7 +5,7 @@ Another implementation for the Bijective Function suggested at http://stackoverf
 
 The foo.py file, is a example of the module usage.
 
-'Usage:
-	import shortening as sho
-	short = sho.encurta(database_id)
-	database_id = sho.expande(short)'
+	'Usage:   
+		import shortening as sho   
+		short = sho.encurta(database_id)  
+		database_id = sho.expande(short)'  
