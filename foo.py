@@ -16,14 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 """
-import shortening as enc
+import shortening as sho
 
 print '----------------------------------------'
-print '    Valor   |    Curto   |    Expandido '
+print '    Value   |    Short   |    Expanded  '
 
 for ind in range(14776336):
-    curto = enc.encurta(ind)
-    expan = enc.expande(curto)
+    short = sho.shortened(ind)
+    expan = sho.expanded(short)
     print '----------------------------------------'
-    print ' '+str(ind)+'  |   '+curto+'  |  '+str(expan)
+    print ' '+str(ind)+'  |   '+short+'  |  '+str(expan)
 

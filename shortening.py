@@ -91,19 +91,19 @@ MAPEAR = {
         '61': 'Z',
         }
 
-def encurta(num):
+def shortened(num):
     r"""
         Dado um valor numérico que pode ser o id de
         uma tupla de uma Base de Dados, retorna-se
         uma string de até 4 caracteres
 
-        >>> encurta(35)
+        >>> shortened(35)
         'z'
-        >>> encurta(0)
+        >>> shortened(0)
         '0'
-        >>> encurta(14776335)
+        >>> shortened(14776335)
         'ZZZZ'
-        >>> encurta(14776336)
+        >>> shortened(14776336)
     """
     digito = []
     string_encurtada = ''
@@ -125,20 +125,20 @@ def encurta(num):
 
     return string_encurtada
 
-def expande(string):
+def expanded(string):
     r"""
         Dado uma string de até 4 caracteres
         é feita a conversão para o seu equivalente 
         numérico na base decimal, que reflete um id
         de uma tupla presente na Base de Dados
 
-        >>> expande('z')
+        >>> expanded('z')
         35
-        >>> expande('0')
+        >>> expanded('0')
         0
-        >>> expande('ZZZZ')
+        >>> expanded('ZZZZ')
         14776335
-        >>> expande('10000')
+        >>> expanded('10000')
     """
     digito = []
 
