@@ -26,7 +26,7 @@ números que se encontrão em base numérica diferente,
 conversão seria entre a Base Decimal e Base 62 e vice-e-versa.
 """
 
-MAPEAR = {
+MAPPING = {
         '0': '0',
         '1': '1',
         '2': '2',
@@ -93,9 +93,8 @@ MAPEAR = {
 
 def shortened(num):
     r"""
-        Dado um valor numérico que pode ser o id de
-        uma tupla de uma Base de Dados, retorna-se
-        uma string de até 4 caracteres
+        Given a numeric value that could be a database
+        tuple key, the function returns an up to 4 character string
 
         >>> shortened(35)
         'z'
@@ -105,32 +104,31 @@ def shortened(num):
         'ZZZZ'
         >>> shortened(14776336)
     """
-    digito = []
-    string_encurtada = ''
-    primeira_vez = True
+    digit = []
+    shotened_string = ''
+    first_time = True
 
-    while primeira_vez or num  > 0:
-        if len(digito) >= 4:
+    while first_time or num  > 0:
+        if len(digit) >= 4:
             return None
 
-        primeira_vez = False
-        resto = num % 62
-        digito.append(resto)
+        first_time = False
+        remain = num % 62
+        digit.append(remain)
         num = num / 62
 
-    digito.reverse()
+    digit.reverse()
 
-    for each in digito:
-        string_encurtada += MAPEAR[str(each)]
+    for each in digit:
+        shotened_string += MAPPING[str(each)]
 
-    return string_encurtada
+    return shotened_string
 
 def expanded(string):
     r"""
-        Dado uma string de até 4 caracteres
-        é feita a conversão para o seu equivalente 
-        numérico na base decimal, que reflete um id
-        de uma tupla presente na Base de Dados
+        Given a string up to 4 character
+        the function returns it equivalent
+        tuple database primary key
 
         >>> expanded('z')
         35
@@ -140,19 +138,19 @@ def expanded(string):
         14776335
         >>> expanded('10000')
     """
-    digito = []
+    digit = []
 
     if len(string) > 4:
         return None
 
     for each in string:
-        digito.append(int([k for k, v in MAPEAR.iteritems() if v == each][0]))
+        digit.append(int([k for k, v in MAPPING.iteritems() if v == each][0]))
 
-    digito.reverse()
+    digit.reverse()
     res = 0
-    if digito:
-        for ind in range(len(digito), 0, -1):
-            res += digito[ind - 1] * (62**(ind - 1)) 
+    if digit:
+        for ind in range(len(digit), 0, -1):
+            res += digit[ind - 1] * (62**(ind - 1)) 
 
     return res
 
